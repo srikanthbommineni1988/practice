@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "us-east-1" # Change as needed
+  region = var.region
 }
 
 resource "aws_instance" "hello_world" {
-  ami           = "ami-0c55b159cbfafe01e" # Change to a valid AMI for your region
-  instance_type = "t2.micro"
+  ami           = var.ami_id
+  instance_type = var.instance_type
 
   user_data = <<-EOF
               #!/bin/bash
